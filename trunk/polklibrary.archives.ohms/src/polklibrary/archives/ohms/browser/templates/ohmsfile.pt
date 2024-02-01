@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone"
+	  lang="en">
+<body>
+
+	<metal:block fill-slot="javascript_head_slot">    
+	</metal:block>
+    
+	<metal:block fill-slot="style_slot">
+	</metal:block>
+
+    
+	<metal:content-core fill-slot="content-core">
+
+        <div class="column">
+            <br />
+            Subject Headings:${context/subject_headings}
+            <br />
+            <br />
+            <a href="${view/viewer_path}">View this file</a>
+            <br />
+            <br />
+        </div>
+        
+	</metal:content-core>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone"
+	  lang="en">
+<body>
+
+	<metal:block fill-slot="javascript_head_slot">    
+        <script type="text/javascript" src="${view/portal/absolute_url}/++resource++polklibrary.archives.ohms/ohms.js"></script>
+	</metal:block>
+    
+	<metal:block fill-slot="style_slot">
+        <link type="text/css" rel="stylesheet" href="${view/portal/absolute_url}/++resource++polklibrary.archives.ohms/ohms.css" />
+	</metal:block>
+
+    
+	<metal:content-core fill-slot="content-core">
+
+        <div id="ohms-repo-view" class="column">
+            <div class="col-100" tal:content="structure context/body/output|nothing">
+            
+            </div>
+            <br />
+            
+            <div class="clear"></div>
+        
+            
+            <div class="col-50">
+                <tal:block condition="context/show_by_alpha">
+                    <label>By Alphabetical</label>
+                    <div class="pat-filter-alpha"></div>
+                </tal:block>
+                <tal:block condition="not:context/show_by_alpha">&nbsp;</tal:block>
+            </div>
+            
+            
+            <div class="col-25">
+                <tal:block condition="context/show_by_subject">
+                    <label>By Subject</label>
+                    <select id="search-by-subject" class="pat-filter-selector">
+                        <option value=""></option>
+                        <option tal:repeat="subject view/get_subject_headings" value="${subject}">
+                            ${subject}
+                        </option>
+                    </select>
+                </tal:block>
+                <tal:block condition="not:context/show_by_subject">&nbsp;</tal:block>
+            </div>
+            
+            <div class="col-25">
+                <tal:block condition="context/show_by_search">
+                    <label>By Search</label>
+                    <input id="search-by-text" class="pat-filter-searchtext" type="text" placeholder="e.g. retirement" />
+                </tal:block>
+                <tal:block condition="not:context/show_by_search">&nbsp;</tal:block>
+            </div>
+            
+            <div class="clear"></div>
+            
+            <div class="col-100" id="ohms-results" >
+                <div class="ohms-file pat-filter-alpha-result"
+                     tal:repeat="brain view/get_files_brains"
+                     data-subject_headings="${brain/Subjects}" 
+                     data-abc="${brain/last_name_initial}"
+                >
+                    <div class="ohms-thumb" >
+                        <a tal:condition="brain/has_image" target="_blank" href="${brain/getURL}/@@images/image">
+                            <img src="${brain/getURL}/@@images/image/tile" alt="Story Image Preview" />
+                        </a>
+                    </div>
+                    <div class="ohms-file-info">
+                        <a class="ohms-title" href="http://polk.uwosh.edu/ohms/viewer.php?cachefile=${brain/xmlPath}">${brain/Title}</a>
+                        <a class="ohms-edit" tal:condition="view/hasPermission" href="${brain/getURL}/edit">(Edit)</a>
+                        <div class="ohms-desc pat-shortner">${brain/Description}</div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                
+                
+                
+                
+                <div class="ohms-end-bar"></div>
+                
+            </div>
+            
+            <div class="clear"></div>
+        
+                
+        </div>
+        
+        
+	</metal:content-core>
+
+</body>
+</html>

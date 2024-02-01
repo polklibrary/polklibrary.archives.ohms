@@ -1,0 +1,65 @@
+.ohms-file {
+    display: none;
+}
+
+.ohms-thumb {
+    display: flex;
+    float: left;
+    width: 50px;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+}
+.ohms-thumb img{
+    max-width: 50px;
+    max-height: 50px;
+}
+.ohms-file-info {
+    float: left;
+    padding-left: 10px;
+    width: calc(100% - 70px);
+}
+
+
+
+.pat-filter-alpha > span {
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+#ohms-repo-view label {
+    display: block;
+}
+#ohms-repo-view {
+    margin-bottom: 20px;
+}
+
+#ohms-repo-view  .ohms-file {
+    border: 1px solid #ccc;
+    border-bottom: 0 none;
+    padding: 10px;
+}
+#ohms-repo-view  .ohms-end-bar {
+    border-top: 1px solid #ccc;
+}
+#search-by-subject{
+    width: 80%;
+}
+#search-by-text{
+    width: 80%;
+}
+
+#ohms-results{
+    padding-top: 10px;
+}
+
+#ohms-results .ohms-edit {
+    color: darkorange;
+    font-style: italic;
+}
+
+.pat-shortner .showmore {
+    cursor: pointer;
+    margin-left: 5px;
+    font-weight: bold;
+}

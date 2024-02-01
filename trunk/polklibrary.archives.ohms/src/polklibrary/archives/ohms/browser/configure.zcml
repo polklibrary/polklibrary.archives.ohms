@@ -1,0 +1,43 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="polklibrary.archives.ohms">
+
+    
+    <browser:page
+        for="polklibrary.archives.ohms.models.repository.IRepository"
+        name="repository_view"
+        class=".repository.RepositoryView"
+        permission="zope2.View"
+        />
+    
+    
+    <browser:page
+        for="polklibrary.archives.ohms.models.ohmsfile.IOHMSFile"
+        name="ohmsfile_view"
+        class=".ohmsfile.OHMSFileView"
+        permission="zope2.View"
+        />
+        
+    <browser:page
+        for="*"
+        name="patch_xml_files"
+        class=".patch_xml.PatchXMLView"
+        permission="cmf.ManagePortal"
+        />
+        
+  <!-- Set overrides folder for Just-a-Bunch-Of-Templates product -->
+  <include package="z3c.jbot" file="meta.zcml" />
+  <browser:jbot
+      directory="overrides"
+      layer="polklibrary.archives.ohms.interfaces.IPolklibraryArchivesOhmsLayer"
+      />
+
+  <!-- Publish static files -->
+  <browser:resourceDirectory
+      name="polklibrary.archives.ohms"
+      directory="static"
+      />
+
+</configure>

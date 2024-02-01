@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<object name="portal_catalog" meta_type="Plone Catalog Tool">
+
+    <!-- Record Model -->
+    <index name="subject_headings" meta_type="FieldIndex">
+        <indexed_attr value="subject_headings"/>
+    </index> 
+    <column value="subject_headings"/>
+    
+
+    
+        
+</object>
