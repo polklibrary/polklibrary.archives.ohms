@@ -17,7 +17,7 @@
         for="polklibrary.archives.ohms.models.ohmsfile.IOHMSFile"
         name="ohmsfile_view"
         class=".ohmsfile.OHMSFileView"
-        permission="zope2.View"
+        permission="zope.Public"
         />
         
     <browser:page
